@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "cd astro && npm run dev",
     "build": "cd astro && npm run build",
-    "preview": "cd astro && npm run preview"
+    "preview": "cd astro && npm run preview",
+    "postinstall": "cd astro && npm install"
   }
 }
