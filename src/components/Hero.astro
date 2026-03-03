@@ -1,0 +1,30 @@
+---
+import type { HeroProps } from "@types";
+type Props = HeroProps;
+
+const { name, specialty, summary, email } = Astro.props;
+---
+
+<section class="py-24 md:py-32" id="#hero">
+  <h1
+    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
+  >
+    {name}
+  </h1>
+  <p
+    class="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
+  >
+    Senior Software Engineer · IA + Arquitecturas Escalables
+  </p>
+  <p class="mb-16 text-base font-normal text-neutral md:text-lg">
+    Senior Software Engineer con más de 10 años de experiencia diseñando y
+    desarrollando sistemas en producción, especializado en arquitecturas
+    full‑stack escalables e integración de IA en productos reales.
+  </p>
+
+  <a
+    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
+    href={`mailto:${email}`}
+    >Hablemos</a
+  >
+</section>
