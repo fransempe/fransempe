@@ -14,17 +14,30 @@ const { name, specialty, summary, email } = Astro.props;
   <p
     class="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
   >
-    Senior Software Engineer · IA + Arquitecturas Escalables
+    <span class="lang-es">
+      Senior Software Engineer · IA + Arquitecturas Escalables
+    </span>
+    <span class="lang-en">
+      Senior Software Engineer · AI + Scalable Architectures
+    </span>
   </p>
   <p class="mb-16 text-base font-normal text-neutral md:text-lg">
-    Senior Software Engineer con más de 10 años de experiencia diseñando y
-    desarrollando sistemas en producción, especializado en arquitecturas
-    full‑stack escalables e integración de IA en productos reales.
+    <span class="lang-es">
+      Senior Software Engineer con más de 10 años de experiencia diseñando y
+      desarrollando sistemas en producción, especializado en arquitecturas
+      full‑stack escalables e integración de IA en productos reales.
+    </span>
+    <span class="lang-en">
+      Senior Software Engineer with 10+ years of experience designing and
+      building production systems, focused on scalable full‑stack architectures
+      and integrating AI (LLMs, agents and automation) into real products.
+    </span>
   </p>
 
   <a
     class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
     href={`mailto:${email}`}
-    >Hablemos</a
+    ><span class="lang-es">Hablemos</span
+    ><span class="lang-en">Get in Touch</span></a
   >
 </section>

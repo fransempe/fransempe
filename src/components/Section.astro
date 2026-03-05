@@ -11,13 +11,24 @@ const { text, href } = Astro.props;
   <h2
     class="mb-14 font-serif text-4xl font-bold tracking-tighter text-white md:text-5xl"
   >
-    {href === "experience"
-      ? "Experiencia"
-      : href === "projects"
-      ? "Stack tecnológico"
-      : href === "about"
-      ? "Sobre mí"
-      : text}
+    <span class="lang-es">
+      {href === "experience"
+        ? "Experiencia"
+        : href === "projects"
+        ? "Stack tecnológico"
+        : href === "about"
+        ? "Sobre mí"
+        : text}
+    </span>
+    <span class="lang-en">
+      {href === "experience"
+        ? "Work Experience"
+        : href === "projects"
+        ? "Tech Stack"
+        : href === "about"
+        ? "About Me"
+        : text}
+    </span>
   </h2>
   <slot />
 </section>

@@ -22,7 +22,7 @@ const ogImgUrl = canonicalURL + socialImage;
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-pt-16 scroll-smooth">
+<html lang={lang} data-lang="es" class="scroll-pt-16 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -50,5 +50,12 @@ const ogImgUrl = canonicalURL + socialImage;
       <slot />
     </main>
     <Footer author={author} socialLinks={socialLinks} />
+
+    <script>
+      const html = document.documentElement;
+      const storedLang = localStorage.getItem("lang");
+      const initialLang = storedLang === "en" ? "en" : "es";
+      html.dataset.lang = initialLang;
+    </script>
   </body>
 </html>

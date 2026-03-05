@@ -31,25 +31,56 @@ const { siteLogo, navLinks } = Astro.props;
     <Menu />
   </button>
 
-  <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
-    id="main-menu"
-  >
-    <ul class="gap-2 sm:flex">
-      {
-        navLinks.map((link) => (
-          <li class="relative">
-            <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content_['•'] hover:text-white`}
-              href={link.href}
-            >
-              {link.text}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+  <div class="flex items-center gap-4">
+    <nav
+      class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+      id="main-menu"
+    >
+      <ul class="gap-2 sm:flex">
+        {
+          navLinks.map((link) => (
+            <li class="relative">
+              <a
+                class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content_['•'] hover:text-white`}
+                href={link.href}
+              >
+                <span class="lang-es">
+                  {link.text === "Experience"
+                    ? "Experiencia"
+                    : link.text === "Projects"
+                    ? "Stack tecnológico"
+                    : link.text === "About"
+                    ? "Sobre mí"
+                    : link.text}
+                </span>
+                <span class="lang-en">{link.text}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div
+      class="hidden items-center rounded-full border border-neutral/40 bg-neutral/10 text-[11px] font-medium text-neutral sm:flex"
+      id="lang-switch"
+    >
+      <button
+        type="button"
+        data-lang-btn="es"
+        class="px-3 py-1 rounded-full transition"
+      >
+        ES
+      </button>
+      <button
+        type="button"
+        data-lang-btn="en"
+        class="px-3 py-1 rounded-full transition"
+      >
+        EN
+      </button>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -102,7 +133,35 @@ const { siteLogo, navLinks } = Astro.props;
     }
   };
 
-  // (Selector de idioma eliminado: el sitio está actualmente solo en español)
+  // Language switch
+  const html = document.documentElement;
+  const langSwitch = document.querySelector("#lang-switch");
+  const esBtn = langSwitch?.querySelector('[data-lang-btn="es"]');
+  const enBtn = langSwitch?.querySelector('[data-lang-btn="en"]');
+
+  const applyLangClasses = (lang: "es" | "en") => {
+    if (!esBtn || !enBtn) return;
+    if (lang === "es") {
+      esBtn.classList.add("bg-primary", "text-black");
+      enBtn.classList.remove("bg-primary", "text-black");
+    } else {
+      enBtn.classList.add("bg-primary", "text-black");
+      esBtn.classList.remove("bg-primary", "text-black");
+    }
+  };
+
+  const setLang = (lang: "es" | "en") => {
+    html.dataset.lang = lang;
+    localStorage.setItem("lang", lang);
+    applyLangClasses(lang);
+  };
+
+  const stored = localStorage.getItem("lang");
+  const current: "es" | "en" = stored === "en" ? "en" : "es";
+  applyLangClasses(current);
+
+  esBtn?.addEventListener("click", () => setLang("es"));
+  enBtn?.addEventListener("click", () => setLang("en"));
 </script>
 
 <style>

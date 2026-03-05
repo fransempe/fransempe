@@ -51,3 +51,19 @@
     }
   }
 }
+
+html[data-lang="es"] .lang-es {
+  display: inline;
+}
+
+html[data-lang="es"] .lang-en {
+  display: none;
+}
+
+html[data-lang="en"] .lang-es {
+  display: none;
+}
+
+html[data-lang="en"] .lang-en {
+  display: inline;
+}

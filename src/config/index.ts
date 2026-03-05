@@ -8,9 +8,9 @@ export const SITE_CONFIG: SiteConfig = {
   lang: "es",
   siteLogo: "/francisco-small.jpg",
   navLinks: [
-    { text: "Experiencia", href: "#experience" },
-    { text: "Stack tecnológico", href: "#projects" },
-    { text: "Sobre mí", href: "#about" },
+    { text: "Experience", href: "#experience" },
+    { text: "Projects", href: "#projects" },
+    { text: "About", href: "#about" },
   ],
   socialLinks: [
     { text: "LinkedIn", href: "https://www.linkedin.com/in/francisco-sempe" },
