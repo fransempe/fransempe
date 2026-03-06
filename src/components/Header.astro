@@ -9,76 +9,77 @@ const { siteLogo, navLinks } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 flex w-full animate-slide-in justify-center bg-black px-4 py-4 sm:px-5 sm:py-6"
 >
-  <a href="/" aria-label="Home link">
-    <Image
-      class="rounded-full"
-      src={siteLogo}
-      width="45"
-      height="45"
-      alt="website logo"
-    />
-  </a>
+  <div class="flex w-full max-w-5xl items-center justify-between">
+    <a href="/" aria-label="Home link">
+      <Image
+        class="rounded-full"
+        src={siteLogo}
+        width="45"
+        height="45"
+        alt="website logo"
+      />
+    </a>
 
-  <button
-    type="button"
-    id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
-    aria-expanded="false"
-    aria-controls="main-menu"
-  >
-    <Menu />
-  </button>
-
-  <div class="flex items-center gap-4">
-    <nav
-      class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
-      id="main-menu"
-    >
-      <ul class="gap-2 sm:flex">
-        {
-          navLinks.map((link) => (
-            <li class="relative">
-              <a
-                class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content_['•'] hover:text-white`}
-                href={link.href}
-              >
-                <span class="lang-es">
-                  {link.text === "Experience"
-                    ? "Experiencia"
-                    : link.text === "Projects"
-                    ? "Stack tecnológico"
-                    : link.text === "About"
-                    ? "Sobre mí"
-                    : link.text}
-                </span>
-                <span class="lang-en">{link.text}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-
-    <div
-      class="hidden items-center rounded-full border border-neutral/40 bg-neutral/10 text-[11px] font-medium text-neutral sm:flex"
-      id="lang-switch"
-    >
+    <div class="flex items-center gap-4">
       <button
         type="button"
-        data-lang-btn="es"
-        class="px-3 py-1 rounded-full transition"
+        id="menu-button"
+        class="px-1.5 text-neutral sm:hidden"
+        aria-expanded="false"
+        aria-controls="main-menu"
       >
-        ES
+        <Menu />
       </button>
-      <button
-        type="button"
-        data-lang-btn="en"
-        class="px-3 py-1 rounded-full transition"
+      <nav
+        class="absolute top-20 right-5 hidden w-52 rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:w-auto sm:border-0 sm:bg-transparent sm:p-0"
+        id="main-menu"
       >
-        EN
-      </button>
+        <ul class="gap-2 sm:flex">
+          {
+            navLinks.map((link) => (
+              <li class="relative">
+                <a
+                  class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content_['•'] hover:text-white`}
+                  href={link.href}
+                >
+                  <span class="lang-es">
+                    {link.text === "Experience"
+                      ? "Experiencia"
+                      : link.text === "Projects"
+                      ? "Stack tecnológico"
+                      : link.text === "About"
+                      ? "Sobre mí"
+                      : link.text}
+                  </span>
+                  <span class="lang-en">{link.text}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div
+          class="mt-4 flex items-center justify-center gap-2 rounded-full border border-neutral/40 bg-neutral/10 px-3 py-1 text-[11px] font-medium text-neutral sm:hidden"
+          id="lang-switch"
+        >
+          <button
+            type="button"
+            data-lang-btn="es"
+            class="px-3 py-1 rounded-full transition"
+          >
+            ES
+          </button>
+          <button
+            type="button"
+            data-lang-btn="en"
+            class="px-3 py-1 rounded-full transition"
+          >
+            EN
+          </button>
+        </div>
+      </nav>
     </div>
   </div>
 </header>
